@@ -1,4 +1,4 @@
-[gd_scene load_steps=101 format=3 uid="uid://drn8wckkquk7g"]
+[gd_scene load_steps=103 format=3 uid="uid://drn8wckkquk7g"]
 
 [ext_resource type="Script" uid="uid://dd3ahvjea2kde" path="res://scripts/state_machine/player.gd" id="1_qd3e3"]
 [ext_resource type="Texture2D" uid="uid://b00q7fk8sjaxy" path="res://assets/game/characters/character_sprites.png" id="1_t61fv"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://t3y8vlkiyson" path="res://scripts/state_machine/till.gd" id="7_xuses"]
 [ext_resource type="Script" uid="uid://dbfrglb76wfdv" path="res://scripts/state_machine/chop.gd" id="8_42irl"]
 [ext_resource type="Script" uid="uid://yob6slr1k711" path="res://scripts/state_machine/water.gd" id="9_3xnwo"]
+[ext_resource type="PackedScene" uid="uid://ddwnui2a62qns" path="res://scenes/components/hit_component.tscn" id="11_djydg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hss88"]
 atlas = ExtResource("1_t61fv")
@@ -180,9 +181,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qd3e3")
 }],
-"loop": true,
+"loop": false,
 "name": &"chopping_east",
-"speed": 3.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -191,7 +192,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_mk55u")
 }],
-"loop": true,
+"loop": false,
 "name": &"chopping_north",
 "speed": 5.0
 }, {
@@ -202,9 +203,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_42irl")
 }],
-"loop": true,
+"loop": false,
 "name": &"chopping_south",
-"speed": 3.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -213,9 +214,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_djydg")
 }],
-"loop": true,
+"loop": false,
 "name": &"chopping_west",
-"speed": 3.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -226,7 +227,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle_east",
-"speed": 3.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -237,7 +238,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle_north",
-"speed": 3.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -248,7 +249,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle_south",
-"speed": 3.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -259,7 +260,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle_west",
-"speed": 3.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -268,9 +269,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tebod")
 }],
-"loop": true,
+"loop": false,
 "name": &"tilling_east",
-"speed": 3.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -279,9 +280,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3hnlq")
 }],
-"loop": true,
+"loop": false,
 "name": &"tilling_north",
-"speed": 3.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -290,9 +291,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_u6wme")
 }],
-"loop": true,
+"loop": false,
 "name": &"tilling_south",
-"speed": 3.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -301,9 +302,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2v4cy")
 }],
-"loop": true,
+"loop": false,
 "name": &"tilling_west",
-"speed": 3.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -314,7 +315,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walking_east",
-"speed": 3.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -325,7 +326,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walking_north",
-"speed": 3.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -336,7 +337,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walking_south",
-"speed": 3.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -347,7 +348,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walking_west",
-"speed": 3.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -356,9 +357,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_es5sa")
 }],
-"loop": true,
+"loop": false,
 "name": &"watering_east",
-"speed": 3.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -367,9 +368,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ieypo")
 }],
-"loop": true,
+"loop": false,
 "name": &"watering_north",
-"speed": 3.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -378,9 +379,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_71adu")
 }],
-"loop": true,
+"loop": false,
 "name": &"watering_south",
-"speed": 3.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -389,9 +390,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qe74o")
 }],
-"loop": true,
+"loop": false,
 "name": &"watering_west",
-"speed": 3.0
+"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t61fv"]
@@ -422,6 +423,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [&"walking_north"]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HitComponent/CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_8y75b"]
 resource_name = "chopping_east"
@@ -448,6 +461,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HitComponent/CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(0, 0), Vector2(9, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_svuau"]
@@ -476,6 +501,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [0, 1]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HitComponent/CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(0, 0), Vector2(0, -20)]
+}
 
 [sub_resource type="Animation" id="Animation_4kqyw"]
 resource_name = "chopping_south"
@@ -503,6 +540,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [0, 1]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HitComponent/CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(0, 0), Vector2(0, 3)]
+}
 
 [sub_resource type="Animation" id="Animation_ro20i"]
 resource_name = "chopping_west"
@@ -529,6 +578,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HitComponent/CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(0, 0), Vector2(-9, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_xuses"]
@@ -1134,6 +1195,9 @@ states/Walk/position = Vector2(620, 79)
 states/Water/node = SubResource("AnimationNodeBlendSpace2D_gpigg")
 states/Water/position = Vector2(724, 195)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_bsn6e"]
+radius = 3.0
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_qd3e3")
@@ -1189,9 +1253,10 @@ script = ExtResource("7_xuses")
 idle_state = NodePath("../Idle")
 animation_name = "Till"
 
-[node name="Chop" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state")]
+[node name="Chop" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "hit_component_collision_shape")]
 script = ExtResource("8_42irl")
 idle_state = NodePath("../Idle")
+hit_component_collision_shape = NodePath("../../HitComponent/CollisionShape2D")
 animation_name = "Chop"
 
 [node name="Water" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state")]
@@ -1201,6 +1266,12 @@ animation_name = "Water"
 
 [node name="InputComponent" type="Node" parent="."]
 script = ExtResource("6_6avc5")
+
+[node name="HitComponent" parent="." instance=ExtResource("11_djydg")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitComponent"]
+shape = SubResource("CircleShape2D_bsn6e")
+debug_color = Color(0.911336, 9.93419e-05, 0.726962, 0.42)
 
 [connection signal="animation_finished" from="AnimationTree" to="StateMachine/Till" method="_on_animation_tree_animation_finished"]
 [connection signal="animation_finished" from="AnimationTree" to="StateMachine/Chop" method="_on_animation_tree_animation_finished"]

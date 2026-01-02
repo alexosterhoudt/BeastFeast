@@ -1,7 +1,8 @@
-[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://dtyfgul6dbo3i"]
+[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://dtyfgul6dbo3i"]
 
 [ext_resource type="Texture2D" uid="uid://2s58aulciajr" path="res://assets/game/tilesets/Wooden_House_Walls_Tilset.png" id="1_uaqb7"]
 [ext_resource type="PackedScene" uid="uid://drs72hsrxb7iq" path="res://scenes/houses/door.tscn" id="2_yxgbh"]
+[ext_resource type="Texture2D" uid="uid://bcbyc46g5afv1" path="res://assets/game/tilesets/Wooden_House_Roof_Tilset.png" id="3_c4aqv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yxgbh"]
 texture = ExtResource("1_uaqb7")
@@ -36,7 +37,44 @@ texture = ExtResource("1_uaqb7")
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_c4aqv"]
 scenes/1/scene = ExtResource("2_yxgbh")
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eeqqe"]
+texture = ExtResource("3_c4aqv")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+
 [resource]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_yxgbh")
 sources/1 = SubResource("TileSetScenesCollectionSource_c4aqv")
+sources/2 = SubResource("TileSetAtlasSource_eeqqe")

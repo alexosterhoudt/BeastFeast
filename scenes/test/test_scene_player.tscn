@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=4 uid="uid://b5q3aosni4qum"]
+[gd_scene load_steps=4 format=4 uid="uid://b5q3aosni4qum"]
 
 [ext_resource type="TileSet" uid="uid://dwlx3y5jwemer" path="res://tilesets/game_tile_set.tres" id="1_mhild"]
 [ext_resource type="PackedScene" uid="uid://drn8wckkquk7g" path="res://scenes/characters/player/player.tscn" id="2_q17pk"]
+[ext_resource type="Texture2D" uid="uid://c0tk5776rjiva" path="res://assets/game/objects/house.png" id="3_vcgnq"]
 
 [node name="TestSceneTilemap" type="Node2D"]
 
@@ -23,3 +24,7 @@ current_tool = 3
 position = Vector2(-220, -135)
 anchor_mode = 0
 zoom = Vector2(1.75, 1.75)
+
+[node name="House" type="Sprite2D" parent="."]
+position = Vector2(345, 124)
+texture = ExtResource("3_vcgnq")
