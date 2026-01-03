@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://d4j5b8b3luo0b"]
+
+[ext_resource type="Script" uid="uid://bdvdkyk82s726" path="res://scenes/test/test_gui.gd" id="1_s03nc"]
+[ext_resource type="Texture2D" uid="uid://bmtyksy1e8mw5" path="res://icon.svg" id="2_6hp0x"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_s03nc")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(78, 69)
+texture = ExtResource("2_6hp0x")
