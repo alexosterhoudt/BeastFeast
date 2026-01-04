@@ -30,17 +30,7 @@ func process_physics(delta : float) -> State:
 	
 	parent.velocity = parent.direction * parent.move_speed
 	parent.move_and_slide()
-	update_animation_params()
 	
 	if(parent.velocity == Vector2.ZERO):
 		return idle_state
 	return null
-
-func update_animation_params():
-	if(parent.direction == Vector2.ZERO):
-		return
-	parent.animations["parameters/Idle/blend_position"] = parent.direction
-	parent.animations["parameters/Walk/blend_position"] = parent.direction
-	parent.animations["parameters/Till/blend_position"] = parent.direction
-	parent.animations["parameters/Chop/blend_position"] = parent.direction
-	parent.animations["parameters/Water/blend_position"] = parent.direction
