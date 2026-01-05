@@ -1304,20 +1304,23 @@ chop_state = NodePath("../Chop")
 water_state = NodePath("../Water")
 animation_name = "Walk"
 
-[node name="Till" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state")]
+[node name="Till" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "move_state")]
 script = ExtResource("7_xuses")
 idle_state = NodePath("../Idle")
+move_state = NodePath("../Move")
 animation_name = "Till"
 
-[node name="Chop" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "hit_component_collision_shape")]
+[node name="Chop" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "move_state", "hit_component_collision_shape")]
 script = ExtResource("8_42irl")
 idle_state = NodePath("../Idle")
+move_state = NodePath("../Move")
 hit_component_collision_shape = NodePath("../../HitComponent/CollisionShape2D")
 animation_name = "Chop"
 
-[node name="Water" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state")]
+[node name="Water" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "move_state")]
 script = ExtResource("9_3xnwo")
 idle_state = NodePath("../Idle")
+move_state = NodePath("../Move")
 animation_name = "Water"
 
 [node name="InputComponent" type="Node" parent="."]

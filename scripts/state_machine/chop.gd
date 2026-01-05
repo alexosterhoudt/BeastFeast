@@ -1,6 +1,7 @@
 extends State
 
 @export var idle_state : State
+@export var move_state : State
 @export var hit_component_collision_shape : CollisionShape2D
 var is_using : bool
 
@@ -14,14 +15,13 @@ func enter() -> void:
 	hit_component_collision_shape.disabled = false
 
 func process_input(event: InputEvent) -> State:
-	
 	return null
 
 func process_physics(delta : float) -> State:
 	if is_using == false:
 		hit_component_collision_shape.disabled = true
 		hit_component_collision_shape.position = Vector2(0,0)
-		return idle_state
+		return move_state
 	return null
 
 
