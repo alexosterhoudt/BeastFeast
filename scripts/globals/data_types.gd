@@ -6,3 +6,5 @@ enum Tools{
 	Hoe,
 	Can
 }
+
+const TILE_SIZE = 16
