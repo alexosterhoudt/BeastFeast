@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var animations = $AnimationTree
 @onready var state_machine: Node = $StateMachine
 @onready var input_component: Node = $InputComponent
+@onready var hit_component: HitComponent = $HitComponent
 
 @export var move_speed : float = 50
 @export var current_tool : DataTypes.Tools = DataTypes.Tools.None
@@ -15,6 +16,7 @@ var last_direction : Vector2
 func _ready() -> void:
 	playback = animations["parameters/playback"]
 	state_machine.init(self, playback, input_component)
+	ToolManager.tool_selected.connect(on_tool_selected)
 
 func _unhandled_input(event: InputEvent) -> void:
 	state_machine.process_input(event)
@@ -27,6 +29,10 @@ func _physics_process(delta: float) -> void:
 
 func _process(delta: float) -> void:
 	state_machine.process_frame(delta)
+
+func on_tool_selected(tool : DataTypes.Tools) -> void:
+	current_tool = tool
+	hit_component.current_tool = tool
 
 func update_animation_params():
 	if(direction == Vector2.ZERO):

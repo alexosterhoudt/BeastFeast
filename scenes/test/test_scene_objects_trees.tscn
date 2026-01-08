@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=4 uid="uid://cah6pe3pkkoi"]
+[gd_scene load_steps=6 format=4 uid="uid://cah6pe3pkkoi"]
 
 [ext_resource type="TileSet" uid="uid://dwlx3y5jwemer" path="res://tilesets/game_tile_set.tres" id="1_1ilvq"]
 [ext_resource type="Script" uid="uid://bqa5qu3kygy8e" path="res://scenes/test/test_scene_objects_trees.gd" id="1_km18k"]
 [ext_resource type="PackedScene" uid="uid://drn8wckkquk7g" path="res://scenes/characters/player/player.tscn" id="2_5nhwj"]
 [ext_resource type="PackedScene" uid="uid://vw35n3jhoocu" path="res://scenes/ui/highlight.tscn" id="4_wi5lm"]
+[ext_resource type="PackedScene" uid="uid://cleqbtnfb5s2g" path="res://scenes/ui/game_screen.tscn" id="5_2otgk"]
 
 [node name="TestSceneTilemap" type="Node2D"]
 script = ExtResource("1_km18k")
@@ -27,21 +28,22 @@ tile_set = ExtResource("1_1ilvq")
 tile_set = ExtResource("1_1ilvq")
 
 [node name="Trees" type="TileMapLayer" parent="GameTilemap"]
-tile_map_data = PackedByteArray("AAAPAAoAAgAAAAAAAgARAAgAAgAAAAAAAgAQAAsAAgAAAAAAAgARAAoAAgAAAAAAAgA=")
+tile_map_data = PackedByteArray("AAAPAAoAAgAAAAAAAgARAAgAAgAAAAAAAgAQAAsAAgAAAAAAAgARAAoAAgAAAAAAAgAVAAkAAgAAAAAAAgATAAwAAgAAAAAAAgA=")
 tile_set = ExtResource("1_1ilvq")
 
 [node name="Props" type="TileMapLayer" parent="GameTilemap"]
 tile_map_data = PackedByteArray("AAAKAAsACAANAAAAAAAMAAUACAARAAAAAAAMAAsACAABAAAAAAANAAwACAAHAAAAAAAPAAUACAAUAAAAAAASAAYACAANAAAAAAASAAoACAATAAAAAAAUAA4ACAAUAAAAAAAVAAcACAAOAAAAAAAZAAgACAABAAAAAAAaAAgACAALAAAAAAAaAAwACAAAAAAAAAA=")
 tile_set = ExtResource("1_1ilvq")
 
+[node name="Highlight" parent="." instance=ExtResource("4_wi5lm")]
+position = Vector2(-127, -83)
+
 [node name="Player" parent="." instance=ExtResource("2_5nhwj")]
 position = Vector2(303, 166)
-current_tool = 1
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
-[node name="Highlight" parent="." instance=ExtResource("4_wi5lm")]
-position = Vector2(-127, -83)
+[node name="GameScreen" parent="." instance=ExtResource("5_2otgk")]
 
 [connection signal="tool_use" from="Player/StateMachine/Till" to="." method="_on_till_tool_use"]
 

@@ -706,6 +706,8 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_i1nod"]
 resource_name = "tilling_east"
+length = 0.5
+step = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -725,7 +727,7 @@ tracks/1/path = NodePath("AnimatedSprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 0.25),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 1]
@@ -737,7 +739,7 @@ tracks/2/path = NodePath("StateMachine/Till")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.5),
+"times": PackedFloat32Array(0.25),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -747,6 +749,8 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_hv5x3"]
 resource_name = "tilling_north"
+length = 0.5
+step = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -766,7 +770,7 @@ tracks/1/path = NodePath("AnimatedSprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 0.25),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 1]
@@ -778,7 +782,7 @@ tracks/2/path = NodePath("StateMachine/Till")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.5),
+"times": PackedFloat32Array(0.25),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -788,6 +792,8 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_blysn"]
 resource_name = "tilling_south"
+length = 0.5
+step = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -807,7 +813,7 @@ tracks/1/path = NodePath("AnimatedSprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 0.25),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 1]
@@ -819,7 +825,7 @@ tracks/2/path = NodePath("StateMachine/Till")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.5),
+"times": PackedFloat32Array(0.25),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -829,6 +835,8 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_ykrpk"]
 resource_name = "tilling_west"
+length = 0.5
+step = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -848,7 +856,7 @@ tracks/1/path = NodePath("AnimatedSprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 0.25),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 1]
@@ -860,7 +868,7 @@ tracks/2/path = NodePath("StateMachine/Till")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.466667),
+"times": PackedFloat32Array(0.25),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -1256,6 +1264,7 @@ radius = 3.0
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 2
+motion_mode = 1
 script = ExtResource("1_qd3e3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -1279,7 +1288,7 @@ autoplay = "idle_south"
 tree_root = SubResource("AnimationNodeStateMachine_d73qs")
 anim_player = NodePath("../AnimationPlayer")
 parameters/Chop/blend_position = Vector2(0.046196, -0.592308)
-parameters/Idle/blend_position = Vector2(-0.236364, 0.192923)
+parameters/Idle/blend_position = Vector2(-0.605904, 0.604225)
 parameters/Till/blend_position = Vector2(0.0702983, -0.111692)
 parameters/Walk/blend_position = Vector2(-0.109091, 0.0981538)
 parameters/Water/blend_position = Vector2(-0.19294, -0.338028)
