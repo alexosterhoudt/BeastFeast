@@ -13,6 +13,8 @@ var playback : AnimationNodeStateMachinePlayback
 var direction : Vector2
 var last_direction : Vector2
 
+signal tool_use(tool : DataTypes.Tools, pos : Vector2)
+
 func _ready() -> void:
 	playback = animations["parameters/playback"]
 	state_machine.init(self, playback, input_component)
@@ -42,3 +44,6 @@ func update_animation_params():
 	animations["parameters/Till/blend_position"] = direction
 	animations["parameters/Chop/blend_position"] = direction
 	animations["parameters/Water/blend_position"] = direction
+
+func tool_use_emit():
+	tool_use.emit(current_tool, position + last_direction * 16 + Vector2(0, 4))

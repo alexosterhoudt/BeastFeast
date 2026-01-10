@@ -4,8 +4,6 @@ extends State
 @export var move_state : State
 var is_using : bool
 
-signal tool_use(pos : Vector2)
-
 func enter() -> void:
 	super()
 	parent.velocity = Vector2.ZERO
@@ -23,6 +21,4 @@ func process_physics(delta : float) -> State:
 func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
 	if "till" in anim_name:
 		is_using = false
-
-func tool_use_emit() -> void:
-	tool_use.emit(parent.position + parent.last_direction * 16 + Vector2(0, 4))
+		
