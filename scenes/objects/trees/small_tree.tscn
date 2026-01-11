@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bg8wkdfbf6d8f"]
+[gd_scene load_steps=9 format=3 uid="uid://bg8wkdfbf6d8f"]
 
 [ext_resource type="Texture2D" uid="uid://1yxap1lc2vpw" path="res://assets/game/objects/Basic Grass Biom things 1.png" id="1_a8qts"]
 [ext_resource type="Script" uid="uid://0f1c2av4thok" path="res://scenes/objects/trees/small_tree.gd" id="2_g5iuu"]
 [ext_resource type="PackedScene" uid="uid://b8t7nl42rbdaw" path="res://scenes/components/hurt_component.tscn" id="2_xyb6m"]
+[ext_resource type="Resource" uid="uid://cmgj35khn4x4a" path="res://resources/mushroom.tres" id="3_w057i"]
 [ext_resource type="PackedScene" uid="uid://draka0qti3jd" path="res://scenes/components/damage_component.tscn" id="4_w057i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_au4vd"]
@@ -19,6 +20,7 @@ size = Vector2(8, 14)
 texture = SubResource("AtlasTexture_au4vd")
 offset = Vector2(0, -4)
 script = ExtResource("2_g5iuu")
+item_data = ExtResource("3_w057i")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 

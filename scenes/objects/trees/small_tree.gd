@@ -3,7 +3,7 @@ extends Sprite2D
 @onready var hurt_component: HurtComponent = $HurtComponent
 @onready var damage_component: DamageComponent = $DamageComponent
 
-var log_scene = preload("res://scenes/objects/trees/log.tscn")
+@export var item_data : ItemData
 
 func _ready() -> void:
 	hurt_component.hurt.connect(on_hurt)
@@ -18,6 +18,7 @@ func on_max_damage_reached() -> void:
 	queue_free()
 
 func add_log_scene() -> void:
-	var log_instance = log_scene.instantiate() as Node2D
-	log_instance.global_position = global_position
-	get_parent().add_child(log_instance)
+	var item = item_data.world_item_scene.instantiate()
+	item.setup(item_data)
+	item.global_position = global_position
+	get_parent().add_child(item)

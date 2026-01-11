@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://cmgj35khn4x4a"]
+
+[ext_resource type="Script" uid="uid://dc5tryac7nm0p" path="res://scripts/item_data.gd" id="1_1v7l7"]
+[ext_resource type="Texture2D" uid="uid://1yxap1lc2vpw" path="res://assets/game/objects/Basic Grass Biom things 1.png" id="1_51pbx"]
+[ext_resource type="PackedScene" uid="uid://gvn6xt2xg5a1" path="res://scenes/items/game_item.tscn" id="3_va5dm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7xdww"]
+atlas = ExtResource("1_51pbx")
+region = Rect2(96, 0, 16, 16)
+
+[resource]
+script = ExtResource("1_1v7l7")
+display_name = "Mushroom"
+icon = SubResource("AtlasTexture_7xdww")
+world_item_scene = ExtResource("3_va5dm")
+metadata/_custom_type_script = "uid://dc5tryac7nm0p"

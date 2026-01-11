@@ -19,4 +19,5 @@ func _on_player_tool_use(tool: DataTypes.Tools, pos: Vector2) -> void:
 	var grid_coords : Vector2i = Vector2i(int(pos.x / DataTypes.TILE_SIZE), int(pos.y / DataTypes.TILE_SIZE))
 	match tool:
 		DataTypes.Tools.Hoe:
+			
 			$GameTilemap/TilledSoil.set_cells_terrain_connect([grid_coords], 0, 1)

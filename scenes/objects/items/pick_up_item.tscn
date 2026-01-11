@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://cshyt4pul6x8c"]
+
+[ext_resource type="Texture2D" uid="uid://1yxap1lc2vpw" path="res://assets/game/objects/Basic Grass Biom things 1.png" id="1_r4nxb"]
+[ext_resource type="Shape2D" path="res://Resources/log/log_collision_shape.tres" id="3_hsss8"]
+
+[sub_resource type="GDScript" id="GDScript_8euv6"]
+script/source = "@tool
+class_name PickUpItem
+extends Area2D
+
+@export var inventory_item : InventoryItem
+@onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+
+func _ready() -> void:
+	sprite_2d.texture = inventory_item.texture
+	collision_shape_2d.shape = inventory_item.ground_collision_shape
+
+func _process(delta) -> void:
+	if Engine.is_editor_hint():
+		if inventory_item and sprite_2d:
+			sprite_2d.texture = inventory_item.texture
+
+func _on_body_entered(body: Node2D) -> void:
+	if body is Player:
+		print(\"Picked up: \", inventory_item.name)
+		queue_free()
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hsss8"]
+atlas = ExtResource("1_r4nxb")
+region = Rect2(80, 32, 16, 16)
+
+[node name="PickUpItem" type="Area2D"]
+collision_layer = 32
+collision_mask = 2
+script = SubResource("GDScript_8euv6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_hsss8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = ExtResource("3_hsss8")
