@@ -3,6 +3,12 @@ extends Node2D
 @onready var highlight : Sprite2D = $Highlight
 @onready var player: Player = $Player
 var distance : float
+var item : ItemData = preload("res://resources/mushroom.tres")
+func _ready() -> void:
+	var mushroom = item.world_item_scene.instantiate()
+	mushroom.setup(item)
+	mushroom.global_position = Vector2(120, 120)
+	add_child(mushroom)
 
 func _process(delta: float) -> void:
 	var mouse_pos = get_local_mouse_position()

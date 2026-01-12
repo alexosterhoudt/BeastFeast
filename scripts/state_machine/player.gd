@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var state_machine: Node = $StateMachine
 @onready var input_component: Node = $InputComponent
 @onready var hit_component: HitComponent = $HitComponent
+@onready var inventory: Inventory = $Inventory
 
 @export var move_speed : float = 50
 @export var current_tool : DataTypes.Tools = DataTypes.Tools.None
@@ -47,3 +48,6 @@ func update_animation_params():
 
 func tool_use_emit():
 	tool_use.emit(current_tool, position + last_direction * 16 + Vector2(0, 4))
+
+func pickup_item(item_data : ItemData) -> void:
+	inventory.add_item(item_data)

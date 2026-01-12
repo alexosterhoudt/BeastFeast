@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://b6ldnah7l6kry"]
+
+[ext_resource type="Texture2D" uid="uid://1yxap1lc2vpw" path="res://assets/game/objects/Basic Grass Biom things 1.png" id="1_kwwcx"]
+[ext_resource type="Script" uid="uid://dc5tryac7nm0p" path="res://scripts/item_data.gd" id="1_wfwuo"]
+[ext_resource type="PackedScene" uid="uid://gvn6xt2xg5a1" path="res://scenes/items/game_item.tscn" id="3_b8buw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mg421"]
+atlas = ExtResource("1_kwwcx")
+region = Rect2(80, 32, 16, 16)
+
+[resource]
+script = ExtResource("1_wfwuo")
+id = "log"
+icon = SubResource("AtlasTexture_mg421")
+world_item_scene = ExtResource("3_b8buw")
+type = "Forage"
+stack_size = 5
+collectable = true
+metadata/_custom_type_script = "uid://dc5tryac7nm0p"

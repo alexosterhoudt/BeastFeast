@@ -1,4 +1,4 @@
-[gd_scene load_steps=103 format=3 uid="uid://drn8wckkquk7g"]
+[gd_scene load_steps=105 format=3 uid="uid://drn8wckkquk7g"]
 
 [ext_resource type="Script" uid="uid://dd3ahvjea2kde" path="res://scripts/state_machine/player.gd" id="1_qd3e3"]
 [ext_resource type="Texture2D" uid="uid://b00q7fk8sjaxy" path="res://assets/game/characters/character_sprites.png" id="1_t61fv"]
@@ -11,6 +11,8 @@
 [ext_resource type="Script" uid="uid://dbfrglb76wfdv" path="res://scripts/state_machine/chop.gd" id="8_42irl"]
 [ext_resource type="Script" uid="uid://yob6slr1k711" path="res://scripts/state_machine/water.gd" id="9_3xnwo"]
 [ext_resource type="PackedScene" uid="uid://ddwnui2a62qns" path="res://scenes/components/hit_component.tscn" id="11_djydg"]
+[ext_resource type="PackedScene" uid="uid://o05kbmpd707t" path="res://scenes/ui/inventory.tscn" id="12_bsn6e"]
+[ext_resource type="PackedScene" uid="uid://cr67iam8eh50" path="res://scenes/ui/inventory_backpack.tscn" id="13_blysn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hss88"]
 atlas = ExtResource("1_t61fv")
@@ -1357,6 +1359,11 @@ position = Vector2(0, -3)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitComponent"]
 shape = SubResource("CircleShape2D_bsn6e")
 debug_color = Color(0.911336, 9.93419e-05, 0.726962, 0.42)
+
+[node name="Inventory" parent="." instance=ExtResource("12_bsn6e")]
+
+[node name="InventoryBackpack" parent="." node_paths=PackedStringArray("inventory") instance=ExtResource("13_blysn")]
+inventory = NodePath("../Inventory")
 
 [connection signal="tool_use" from="." to="." method="_on_tool_use"]
 [connection signal="animation_finished" from="AnimationTree" to="StateMachine/Till" method="_on_animation_tree_animation_finished"]
