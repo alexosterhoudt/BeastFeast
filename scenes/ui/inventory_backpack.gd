@@ -1,38 +1,59 @@
-class_name InventoryBackpack
 extends Control
+class_name InventoryBackpack
 
-@export var inventory : Inventory
-@onready var slots_container: GridContainer = $Panel/MarginContainer/VBoxContainer/SlotsContainer
-@onready var slot_template: Control = $SlotTemplate
+@export var inventory: Inventory
+@export var slot_scene: PackedScene
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	visible = false
-	inventory.changed.connect(refresh)
-	refresh()
+@onready var slots_container := $Panel/MarginContainer/VBoxContainer/SlotsContainer
 
-func refresh() -> void:
-	for child in slots_container.get_children():
-		child.queue_free()
-	
-	for slot in inventory.slots:
-		var ui_slot = slot_template.duplicate()
-		ui_slot.visible = true
-		slots_container.add_child(ui_slot)
-		
-		ui_slot.get_node("Panel/CenterContainer/TextureRect").texture = slot.item.icon
-		
-		var count_label := ui_slot.get_node("Panel/Quantity")
-		if slot.quantity > 1:
-			count_label.text = str(slot.quantity)
-			count_label.visible = true
+var ui_slots: Array[Control] = []
+var isOpen : bool = false
+
+
+func _ready():
+	_build_slots()
+	inventory.changed.connect(refresh_inventory)
+	refresh_inventory()
+	close()
+
+func _build_slots():
+	for i in inventory.size:
+		var slot_ui := slot_scene.instantiate()
+		slots_container.add_child(slot_ui)
+		ui_slots.append(slot_ui)
+
+func refresh_inventory():
+	for i in inventory.size:
+		var data_slot = inventory.slots[i]
+		var ui_slot = ui_slots[i]
+
+		var icon := ui_slot.get_node("CenterContainer/Icon")
+		var qty := ui_slot.get_node("Quantity")
+
+		if data_slot == null:
+			icon.visible = false
+			qty.visible = false
 		else:
-			count_label.visible = false
-		print(ui_slot.size)
-		print(ui_slot.get_node("Panel/CenterContainer/TextureRect").size)
-	
-	slots_container.queue_sort()
+			icon.texture = data_slot.item.icon
+			icon.visible = true
 
-func _unhandled_input(event: InputEvent) -> void:
+			if data_slot.quantity > 1:
+				qty.text = str(data_slot.quantity)
+				qty.visible = true
+			else:
+				qty.visible = false
+
+func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("inventory"):
-		visible = !visible
+		if isOpen:
+			close()
+		else:
+			open()
+
+func open() -> void:
+	visible = true
+	isOpen = true
+
+func close() -> void:
+	visible = false
+	isOpen = false

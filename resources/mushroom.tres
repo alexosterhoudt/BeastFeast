@@ -15,5 +15,4 @@ icon = SubResource("AtlasTexture_7xdww")
 world_item_scene = ExtResource("3_va5dm")
 type = "Forage"
 stack_size = 10
-collectable = true
 metadata/_custom_type_script = "uid://dc5tryac7nm0p"

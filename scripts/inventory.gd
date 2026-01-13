@@ -1,26 +1,30 @@
 class_name Inventory
 extends Node
 
-@export var size := 4
+@export var size := 15
 var slots : Array[InventorySlot] = []
 
 signal changed
 
-func add_item(item_data : ItemData, amount := 1) -> bool:
-	var success := false
-	for slot in slots:
-		if slot.item == item_data and not slot.is_full():
-			var can_add = min(amount, item_data.stack_size - slot.quantity)
-			slot.quantity += can_add
-			amount -= can_add
+func _init() -> void:
+	for i in size:
+		slots.append(null)
+
+func add_item(item: ItemData, amount := 1):
+	# Stack first
+	for i in slots.size():
+		var slot = slots[i]
+		if slot and slot.item == item:
+			slot.quantity += amount
 			changed.emit()
-			if amount <= 0:
-				return true
-	
-	while amount > 0 and slots.size() < size:
-		var to_add = min(amount, item_data.stack_size)
-		slots.append(InventorySlot.new(item_data, to_add))
-		amount -= to_add
-	changed.emit()
-	return amount == 0
-	return success
+			return
+
+	# Find empty slot
+	for i in slots.size():
+		if slots[i] == null:
+			var new_slot := InventorySlot.new()
+			new_slot.item = item
+			new_slot.quantity = amount
+			slots[i] = new_slot
+			changed.emit()
+			return
