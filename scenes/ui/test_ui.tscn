@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfxcmfbchsx0b"]
+
+[ext_resource type="Script" uid="uid://cf3jrakrlfs" path="res://test_ui.gd" id="1_5uadj"]
+[ext_resource type="Script" uid="uid://bbm5ahgfxcun" path="res://scenes/ui/color_rect.gd" id="2_rxn4h"]
+
+[node name="TestUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_5uadj")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(1, 0, 0, 1)
+script = ExtResource("2_rxn4h")

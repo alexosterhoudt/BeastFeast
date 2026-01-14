@@ -1,7 +1,36 @@
 class_name SlotTemplate
 extends Control
 
+@onready var icon: TextureRect = $CenterContainer/Icon
+@onready var quantity: Label = $Quantity
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass
+var slot_index : int
+var inventory : InventoryBackpack
+
+func _get_drag_data(at_position: Vector2):
+	
+	if not icon.visible:
+		return null
+	
+	var drag_preview = TextureRect.new()
+	drag_preview.custom_minimum_size = Vector2(48, 48)
+	drag_preview.texture = icon.texture
+	set_drag_preview(drag_preview)
+	
+	var data = {
+		"from_index": slot_index
+	}
+	return data
+
+func _can_drop_data(at_position: Vector2, data) -> bool:
+	return data is Dictionary and data.has("from_index")
+
+func _drop_data(at_position: Vector2, data) -> void:
+	var from_index = data["from_index"]
+	var to_index = slot_index
+	
+	inventory.request_swap(from_index, to_index)
+
+func _gui_input(event):
+	if event is InputEventMouseButton and event.pressed:
+		print("CLICKED SLOT", slot_index)

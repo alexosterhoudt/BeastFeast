@@ -28,3 +28,9 @@ func add_item(item: ItemData, amount := 1):
 			slots[i] = new_slot
 			changed.emit()
 			return
+
+func swap_slots(a: int, b: int):
+	var temp = slots[a]
+	slots[a] = slots[b]
+	slots[b] = temp
+	changed.emit()

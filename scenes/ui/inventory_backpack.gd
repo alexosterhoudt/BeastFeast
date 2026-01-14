@@ -2,13 +2,12 @@ extends Control
 class_name InventoryBackpack
 
 @export var inventory: Inventory
-@export var slot_scene: PackedScene
+var slot_scene: PackedScene = preload("res://scenes/ui/slot_template.tscn")
 
 @onready var slots_container := $Panel/MarginContainer/VBoxContainer/SlotsContainer
 
 var ui_slots: Array[Control] = []
 var isOpen : bool = false
-
 
 func _ready():
 	_build_slots()
@@ -20,6 +19,10 @@ func _build_slots():
 	for i in inventory.size:
 		var slot_ui := slot_scene.instantiate()
 		slots_container.add_child(slot_ui)
+		
+		slot_ui.slot_index = i
+		slot_ui.inventory = self
+		
 		ui_slots.append(slot_ui)
 
 func refresh_inventory():
@@ -42,6 +45,12 @@ func refresh_inventory():
 				qty.visible = true
 			else:
 				qty.visible = false
+
+func request_swap(from_index : int, to_index : int):
+	if from_index == to_index:
+		return
+	
+	inventory.swap_slots(from_index, to_index)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("inventory"):
