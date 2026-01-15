@@ -56,5 +56,6 @@ move_speed = 75.0
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
 [node name="GameScreen" parent="." instance=ExtResource("5_2otgk")]
+visible = false
 
 [connection signal="tool_use" from="Player" to="." method="_on_player_tool_use"]

@@ -4,6 +4,9 @@ extends PanelContainer
 @onready var tool_hoe: Button = $MarginContainer/HBoxContainer/ToolHoe
 @onready var tool_can: Button = $MarginContainer/HBoxContainer/ToolCan
 
+func _ready() -> void:
+	visible = true
+
 func _on_tool_axe_pressed() -> void:
 	ToolManager.select_tool(DataTypes.Tools.Axe)
 

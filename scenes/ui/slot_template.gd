@@ -13,7 +13,7 @@ func _get_drag_data(at_position: Vector2):
 		return null
 	
 	var drag_preview = TextureRect.new()
-	drag_preview.custom_minimum_size = Vector2(48, 48)
+	drag_preview.custom_minimum_size = Vector2(24, 24)
 	drag_preview.texture = icon.texture
 	set_drag_preview(drag_preview)
 	

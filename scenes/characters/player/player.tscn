@@ -1363,6 +1363,7 @@ debug_color = Color(0.911336, 9.93419e-05, 0.726962, 0.42)
 [node name="Inventory" parent="." instance=ExtResource("12_bsn6e")]
 
 [node name="InventoryBackpack" parent="." node_paths=PackedStringArray("inventory") instance=ExtResource("13_blysn")]
+visible = false
 inventory = NodePath("../Inventory")
 
 [connection signal="tool_use" from="." to="." method="_on_tool_use"]
